@@ -218,6 +218,16 @@
 
 
     \section{NFC Reader(PN532 V3)}
+        \subsection{Material}
+        \subsection{Connection with RBP}
+            \subsubsection{Multi-reader connection - I2C mode}
+            If the readers have different I2C address, then we only need one bus, but if they have same address, and that address can't be changed, then here come some potential solutions:\\      
+            \textbf{I2C Multiplexer ( max 8 readers):} \url{https://www.adafruit.com/product/2717?srsltid=AfmBOorhzn_5ry0sL1WOVAlTeGnU4hh1WHF7dkA4JKQbefiaHu6vNRcs}\\
+            \url{https://learn.adafruit.com/adafruit-tca9548a-1-to-8-i2c-multiplexer-breakout}\\
+            \textbf{Create new buses:} \url{https://www.instructables.com/Raspberry-PI-Multiple-I2c-Devices/}\\
+            \textbf{1 I2C, 1 SPI:} ChatGPT, not sure, need testing.
+
+        \subsection{Connection with Arduino}
 
 
 
