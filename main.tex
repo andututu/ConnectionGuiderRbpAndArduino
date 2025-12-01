@@ -37,7 +37,7 @@
 \makeatletter
 \newcommand{\l@subsubsubsection}[2]{
     \ifnum \c@tocdepth >3
-        \vspace{-15pt}
+        \vspace{-14pt}
         \indent \@dottedtocline{4}{7em}{4em}{#1}{#2}
     \fi}
 \makeatother
@@ -86,28 +86,27 @@
             \end{center}
 
         \subsection{Connection with Raspberry Pi}
-
             \subsubsection{Connection scheme}
-            The connection scheme to connect motor to rbp using l298n
-            \begin{figure}[H]
-                \centering
-                \includegraphics[width=0.5\textwidth]{image/motorscheme.jpg}
-                \caption{Connection scheme}
-                \label{fig: motorrbprscheme}
-            \end{figure}
+                The connection scheme to connect motor to rbp using l298n
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.5\textwidth]{image/motorscheme.jpg}
+                    \caption{Connection scheme}
+                    \label{fig: motorrbprscheme}
+                \end{figure}
 
             \subsubsection{Actual wiring}
-            The image of real connection
-            \begin{figure}[H]
-                \centering
-                \includegraphics[width=0.5\textwidth]{image/motorrealimage.jpg}
-                \caption{Real connection image}
-                \label{fig: motorrbpreal}
-            \end{figure}
+                The image of real connection
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.5\textwidth]{image/motorrealimage.jpg}
+                    \caption{Real connection image}
+                    \label{fig: motorrbpreal}
+                \end{figure}
 
             \subsubsection{Code example}
-            \begin{multicols}{2}
-            \begin{verbatim}
+                \begin{multicols}{2}
+                \begin{verbatim}
     import RPi.GPIO as GPIO
     import time
 
@@ -159,32 +158,31 @@
     finally:
         pwm.stop()
         GPIO.cleanup()
-            \end{verbatim}
-            \end{multicols}
+                \end{verbatim}
+                \end{multicols}
 
             \subsubsection{Remark for connection with RBP}
-            \begin{itemize}
-                \item 1 L298N occupies at least 4 GPIOs on RBP (for 2 motors).
-                \vspace{-5pt}\item L298N can be powerred by RBP or external power source.
-
-            \end{itemize}
+                \begin{itemize}
+                    \item 1 L298N occupies at least 4 GPIOs on RBP (for 2 motors).
+                    \vspace{-5pt}\item L298N can be powerred by RBP or external power source.
+                \end{itemize}
         
         \subsection{Connection with Arduino}
             \subsubsection{Connection scheme}
-            The connection scheme to connect motors to arduino uno rev 3 using l298n is the same as connection with RBP
+                The connection scheme to connect motors to arduino uno rev 3 using l298n is the same as connection with RBP
 
             \subsubsection{Actual wiring}
-            The image of real connection
-            \begin{figure}[H]
-                \centering
-                %\includegraphics[width=0.5\textwidth]{image/motorrealimage.jpg}
-                \caption{Real connection image}
-                %\label{fig: motorrbpreal}
-            \end{figure}
+                The image of real connection
+                \begin{figure}[H]
+                    \centering
+                    %\includegraphics[width=0.5\textwidth]{image/motorrealimage.jpg}
+                    \caption{Real connection image}
+                    %\label{fig: motorrbpreal}
+                \end{figure}
 
             \subsubsection{Code example}
-            \begin{multicols}{2}
-            \begin{verbatim}
+                \begin{multicols}{2}
+                \begin{verbatim}
     // Motor control pins
     int IN1 = 7;
     int IN2 = 8;
@@ -230,18 +228,14 @@
     motorStop();
     delay(1000);
     }
-            \end{verbatim}
-            \end{multicols}
-
+                \end{verbatim}
+                \end{multicols}
 
             \subsubsection{Remark for conection with Arduino}
-            \begin{itemize}
-                \item 1 L298N occupies at least 4 GPIOs on Arduino (for 2 motors).
-                \vspace{-5pt}\item Recommend connection: Motor $\rightarrow$ L298N $\rightarrow$ Arduino $\rightarrow$ RBP
-
-            \end{itemize}
-
-
+                \begin{itemize}
+                    \item 1 L298N occupies at least 4 GPIOs on Arduino (for 2 motors).
+                    \vspace{-5pt}\item Recommend connection: Motor $\rightarrow$ L298N $\rightarrow$ Arduino $\rightarrow$ RBP
+                \end{itemize}
 
     \section{NFC Reader}
         \subsection{Material}
@@ -254,9 +248,7 @@
         \subsection{Connection with RBP}
             If all the readers have different I2C addresses, then we only need one bus, but if they have same address, and that address can't be changed, then here come some potential solutions:\\
             \subsubsection{2-reader connection: 1 I2C and 1 SPI}
-
                 \subsubsubsection{Conection scheme}
-
                     \begin{figure}[H]                                      
                         \centering
                         \includegraphics[width=0.7\textwidth]{image/pn532scheme.png}
@@ -265,42 +257,45 @@
                     \end{figure}
 
                 \subsubsubsection{Actual wiring}
-
                     \begin{figure}[H]
-                    \centering
-                    \begin{minipage}{0.45\textwidth}
                         \centering
-                        \includegraphics[width=\linewidth]{image/pn532real1.jpg}
-                        \caption{Overview}
-                    \end{minipage}
-                    \hfill
-                    \begin{minipage}{0.45\textwidth}
-                        \centering
-                        \includegraphics[width=\linewidth]{image/pn532real2.jpg}
-                        \caption{Pin connection zoom in}
-                    \end{minipage}
-                \end{figure}
-
+                        \begin{minipage}{0.45\textwidth}
+                            \centering
+                            \includegraphics[width=\linewidth]{image/pn532real1.jpg}
+                            \caption{Overview}
+                        \end{minipage}
+                        \hfill
+                        \begin{minipage}{0.45\textwidth}
+                            \centering
+                            \includegraphics[width=\linewidth]{image/pn532real2.jpg}
+                            \caption{Pin connection zoom in}
+                        \end{minipage}
+                    \end{figure}
 
                 \subsubsubsection{Remark for connection with RBP}
+                    \begin{itemize}
+                        \item For 2-reader connection, 8 GPIO pins are used (including the VCC and Ground)
+                    \end{itemize}
 
-            
             \subsubsection{More-than-2-reader connection: I2C multiplexer}
-            \textbf{Create new buses:} \url{https://www.instructables.com/Raspberry-PI-Multiple-I2c-Devices/}\\
-            \textbf{I2C Multiplexer ( max 8 readers):}
-            \url{https://www.adafruit.com/product/2717?srsltid=AfmBOorhzn_5ry0sL1WOVAlTeGnU4hh1WHF7dkA4JKQbefiaHu6vNRcs}\\
-            \url{https://learn.adafruit.com/adafruit-tca9548a-1-to-8-i2c-multiplexer-breakout}\\
+                \textbf{Create new buses:}
+                \begin{itemize}
+                    \item \url{https://www.instructables.com/Raspberry-PI-Multiple-I2c-Devices/}\\
+                \end{itemize}
+            
+                \textbf{I2C Multiplexer ( max 8 readers):}
+                \begin{itemize}
+                    \item \url{https://www.adafruit.com/product/2717?srsltid=AfmBOorhzn_5ry0sL1WOVAlTeGnU4hh1WHF7dkA4JKQbefiaHu6vNRcs}\\
+                    \item \url{https://learn.adafruit.com/adafruit-tca9548a-1-to-8-i2c-multiplexer-breakout}\\
+                \end{itemize}
 
         \subsection{Connection with Arduino}
-        https://forum.arduino.cc/t/4-pn532-spi-arduino-nano/1041037
-
+            https://forum.arduino.cc/t/4-pn532-spi-arduino-nano/1041037
 
 
     \section{Sensor}
-    glkh;gfghfg
 
-
-
+    
     \section{Compressor}
 
 
