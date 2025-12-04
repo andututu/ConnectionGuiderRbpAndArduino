@@ -91,7 +91,7 @@
                 \begin{figure}[H]
                     \centering
                     \includegraphics[width=0.5\textwidth]{image/motorscheme.jpg}
-                    \caption{Connection scheme}
+                    \caption{Motor connection scheme}
                     \label{fig: motorrbprscheme}
                 \end{figure}
 
@@ -241,7 +241,7 @@
         \subsection{Material}
             NFC Readers: PN532 V3\\
             NFC Tag\\
-            Raspberry Pi: Pi 4 Model B, Pi 5(e)/Arduino: Uno Rev 3\\
+            Raspberry Pi: Pi 4 Model B, Pi 5(error)/Arduino: Uno Rev 3\\
             GPIO cables\\
             I2C Multiplexer(for more than 2 readers)\\
 
@@ -252,7 +252,7 @@
                     \begin{figure}[H]                                      
                         \centering
                         \includegraphics[width=0.7\textwidth]{image/pn532scheme.png}
-                        \caption{L298N Pin Layout}
+                        \caption{NFC Reader connection scheme}
                         \label{fig: l298npin}
                     \end{figure}
 
@@ -283,18 +283,67 @@
                     \item \url{https://www.instructables.com/Raspberry-PI-Multiple-I2c-Devices/}\\
                 \end{itemize}
             
-                \textbf{I2C Multiplexer ( max 8 readers):}
+                \textbf{I2C Multiplexer (max 8 readers):}
                 \begin{itemize}
                     \item \url{https://www.adafruit.com/product/2717?srsltid=AfmBOorhzn_5ry0sL1WOVAlTeGnU4hh1WHF7dkA4JKQbefiaHu6vNRcs}\\
                     \item \url{https://learn.adafruit.com/adafruit-tca9548a-1-to-8-i2c-multiplexer-breakout}\\
                 \end{itemize}
 
         \subsection{Connection with Arduino}
-            https://forum.arduino.cc/t/4-pn532-spi-arduino-nano/1041037
-
+            \begin{itemize}
+                \item https://forum.arduino.cc/t/4-pn532-spi-arduino-nano/1041037
+            \end{itemize}
 
     \section{Sensor}
+        \subsection{Material}
+            Sensor: Fischertechnik Photo transistor\\
+            I2C GPIO Expander: Adafruit MCP23017\\
+            Raspberry Pi: Pi 4 Model B, Pi 5(error)/Arduino: Uno Rev 3\\
+            GPIO cables\\
 
+        \subsection{Connection with RBP}
+            \subsubsection{Conection scheme}
+                \begin{figure}[H]                                      
+                    \centering
+                    \includegraphics[width=0.7\textwidth]{image/sensorscheme.jpg}
+                    \caption{Sensor connection scheme}
+                \end{figure}
+
+            \subsubsection{Actual wiring}
+                \begin{figure}[H]                                      
+                    \centering
+                    \includegraphics[width=0.5\textwidth]{image/sensorreal1.jpg}
+                    \caption{Overview}
+                \end{figure}
+
+                \begin{figure}[H]
+                    \centering
+                    \begin{minipage}{0.3\textwidth}
+                        \centering
+                        \includegraphics[width=\linewidth]{image/sensorreal2.jpg}
+                        \caption{Zoom in 1}
+                    \end{minipage}\hfill
+                    \begin{minipage}{0.3\textwidth}
+                        \centering
+                        \includegraphics[width=\linewidth]{image/sensorreal3.jpg}
+                        \caption{Zoom in 2}
+                    \end{minipage}\hfill
+                    \begin{minipage}{0.3\textwidth}
+                        \centering
+                        \includegraphics[width=\linewidth]{image/sensorreal4.jpg}
+                        \caption{Zoom in 3}
+                    \end{minipage}
+                \end{figure}
+
+            \subsubsection{Remark for connection with RBP}
+                    \begin{itemize}
+                        \item 1 MCP23017 can connect to 16 sensorscheme
+                        \item The MCP23017 uses the I2C bus on RBP, but the I2C address can be set
+                        \item 3 address pins $\rightarrow$ 1 I2C bus on RBP can theoretically connect to 8 MCP23017
+                        \item 1 RBP can connect to 2 PN532 and multiple MCP23017
+                    \end{itemize}
+
+        \subsection{Connection with Arduino}
     
     \section{Compressor}
 
